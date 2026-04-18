@@ -301,10 +301,25 @@
                                             <div className="grid grid-cols-2 gap-3"><div><label className={labelStyle}>แอพ</label><div className="relative"><Smartphone className="absolute left-3 top-3.5 text-pink-200" size={16} /><input required name="app" value={formData.app} onChange={handleInputChange} className={`${inputStyle} pl-10`} placeholder="เช่น Netflix" disabled={isSubmitting}/></div></div><div><label className={labelStyle}>จำนวนวัน</label><input required type="number" name="days" value={formData.days} onChange={handleInputChange} className={inputStyle} placeholder="30" disabled={isSubmitting}/></div></div>
                                             <div className="grid grid-cols-2 gap-3"><div><label className={labelStyle}>อีเมล (แอพ)</label><input required name="accountEmail" value={formData.accountEmail} onChange={handleInputChange} className={inputStyle} placeholder="Login Email" disabled={isSubmitting}/></div><div><label className={labelStyle}>พาสเวิร์ด</label><input required name="accountPassword" value={formData.accountPassword} onChange={handleInputChange} className={inputStyle} placeholder="Password" disabled={isSubmitting}/></div></div>
                                             
-                                            <div className="grid grid-cols-2 gap-3">
-                                                <div><label className={labelStyle}>จอ</label><div className="relative"><Monitor className="absolute left-3 top-3.5 text-pink-200" size={16} /><input name="screen" value={formData.screen} onChange={handleInputChange} className={`${inputStyle} pl-9`} placeholder="จอ 1" disabled={isSubmitting}/></div></div>
-                                                <div className="min-w-0"><label className={labelStyle}>วันที่ซื้อ</label><div className="relative flex items-center"><Calendar className="absolute left-2 text-pink-200" size={14} /><input required type="date" name="purchaseDate" value={formData.purchaseDate} onChange={handleInputChange} className="w-full min-w-0 bg-white/50 border border-pink-100 focus:border-pink-300 focus:ring-2 focus:ring-pink-200 rounded-2xl pl-7 pr-0 py-3 text-gray-700 outline-none transition-all text-[9px] tracking-tighter" disabled={isSubmitting}/></div></div>
-                                            </div>
+<div className="grid grid-cols-2 gap-3">
+    <div>
+        <label className={labelStyle}>ซื้อแบบ</label>
+        <div className="flex items-center gap-4 h-11 px-2">
+            <label className="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="screen" value="จอ" checked={formData.screen === 'จอ'} onChange={handleInputChange} disabled={isSubmitting} className="w-4 h-4 accent-pink-400 cursor-pointer" />
+                <span className="text-sm text-gray-600 font-medium">จอ</span>
+            </label>
+            <label className="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="screen" value="แอค" checked={formData.screen === 'แอค'} onChange={handleInputChange} disabled={isSubmitting} className="w-4 h-4 accent-pink-400 cursor-pointer" />
+                <span className="text-sm text-gray-600 font-medium">แอค</span>
+            </label>
+        </div>
+    </div>
+    <div className="min-w-0">
+        <label className={labelStyle}>วันที่ซื้อ</label>
+        <div className="relative flex items-center"><Calendar className="absolute left-2 text-pink-200" size={14} /><input required type="date" name="purchaseDate" value={formData.purchaseDate} onChange={handleInputChange} className="w-full min-w-0 bg-white/50 border border-pink-100 focus:border-pink-300 focus:ring-2 focus:ring-pink-200 rounded-2xl pl-7 pr-0 py-3 text-gray-700 outline-none transition-all text-[9px] tracking-tighter" disabled={isSubmitting}/></div>
+    </div>
+</div>
 
                                             <div><label className={labelStyle}>ปัญหา (แจ้งให้ชัดเจน)</label><textarea required name="problem" value={formData.problem} onChange={handleInputChange} className={`${inputStyle} min-h-[80px] py-3`} placeholder="แจ้งรายละเอียดปัญหาที่นี่..." disabled={isSubmitting}></textarea></div>
                                             <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-pink-400 to-pink-300 text-white font-black py-4 rounded-2xl shadow-lg shadow-pink-200/50 flex items-center justify-center gap-2 transition-all active:scale-95 uppercase tracking-widest text-sm disabled:opacity-70">
